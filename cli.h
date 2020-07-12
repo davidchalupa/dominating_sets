@@ -97,6 +97,9 @@ private:
     void exhaustive_search_core(refer current_vertex, refer depth, refer current_size);
     void exhaustive_search(refer current_size);
     void component_labeling();
+    int process_from_file();
+    int process_ba();
+    int process_udg();
 public:
     cli();
     int start_cli();
