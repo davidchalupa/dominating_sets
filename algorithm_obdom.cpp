@@ -156,7 +156,16 @@ void algorithm_obdom::obdom(graph G, bool *result, long long time_limit, refer l
     greedydom->greedydom(G, result);
     possibilities_count = 0;
     initial_vertices_count = 0;
-    use_current_greedy_init = (generator.random(0,100) < 0);
+    if (multi_start)
+    {
+        use_current_greedy_init = (generator.random(0,100) < 0);
+    }
+    else
+    {
+        // non-multi-start version (classic RLS_o) should use the greedy permutation at the start
+        use_current_greedy_init = true;
+    }
+
     for (v=0;v<G->n;v++)
     {
         if (init_greedy && use_current_greedy_init && result[v])
